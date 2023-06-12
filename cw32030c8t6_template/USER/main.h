@@ -34,5 +34,7 @@
 
 #include "system_init.h"
 #include "system.h"
+#include "public.h"
+#include "callback.h"
 
 #endif

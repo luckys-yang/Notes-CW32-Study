@@ -39,5 +39,9 @@
 .\objects\key_1.o: .\USER\system_init.h
 .\objects\key_1.o: .\USER\main.h
 .\objects\key_1.o: .\USER\system.h
+.\objects\key_1.o: .\USER\callback.h
+.\objects\key_1.o: .\USER\public.h
 .\objects\key_1.o: .\APP\led.h
 .\objects\key_1.o: .\APP\key_1.h
+.\objects\key_1.o: .\APP\buzzer.h
+.\objects\key_1.o: .\APP\usart1.h

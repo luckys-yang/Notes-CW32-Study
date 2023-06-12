@@ -34,7 +34,11 @@
 
 #include "system_init.h"
 #include "system.h"
+#include "callback.h"
+#include "public.h"
 #include "led.h"
 #include "key_1.h"
-
+#include "buzzer.h"
+#include "callback.h"
+#include "usart1.h"
 #endif

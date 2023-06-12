@@ -6,16 +6,12 @@
 ****************************************************************************/
 #include "main.h"
 
-
-
 int main(void)
 {
-  System_Init.Hardware_Init();
+	System_Init.Hardware_Init();
 
-	while(1)
-	{  
+	while (1)
+	{
 		System.Run();
 	}
 }
-
-

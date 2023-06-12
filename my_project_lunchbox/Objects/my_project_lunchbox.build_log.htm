@@ -21,27 +21,33 @@ Target DLL:      CMSIS_AGDI.dll V1.33.0.0
 Dialog DLL:      TARMCM1.DLL V1.14.4.0
  
 <h2>Project:</h2>
-G:\cw32\my_project_lunchbox\my_project_lunchbox.uvprojx
-Project File Date:  06/11/2023
+g:\cw32\my_project_lunchbox\my_project_lunchbox.uvprojx
+Project File Date:  06/12/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
-compiling led.c...
-APP\led.c(36): warning:  #1-D: last line of file ends without a newline
-  }
-APP\led.c(13): error:  #114: function "Led_ON"  was referenced but not defined
-  static void Led_ON(Led_Num_t);   // 打开
-APP\led.c(14): error:  #114: function "Led_OFF"  was referenced but not defined
-  static void Led_OFF(Led_Num_t);  // 关闭
-APP\led.c(15): error:  #114: function "Led_Flip"  was referenced but not defined
-  static void Led_Flip(Led_Num_t); // 翻转
-APP\led.c: 1 warning, 3 errors
 compiling system.c...
-compiling key_1.c...
-compiling system_init.c...
 compiling main.c...
-".\Objects\my_project_lunchbox.axf" - 3 Error(s), 1 Warning(s).
+compiling usart1.c...
+APP\usart1.c(10): warning:  #1-D: last line of file ends without a newline
+  #include "main.h"
+APP\usart1.c: 1 warning, 0 errors
+compiling led.c...
+compiling key_1.c...
+compiling public.c...
+USER\public.c(33): warning:  #1-D: last line of file ends without a newline
+  }
+USER\public.c: 1 warning, 0 errors
+compiling buzzer.c...
+APP\buzzer.c(67): warning:  #1-D: last line of file ends without a newline
+  }
+APP\buzzer.c: 1 warning, 0 errors
+compiling callback.c...
+compiling system_init.c...
+linking...
+Program Size: Code=2576 RO-data=324 RW-data=84 ZI-data=516  
+".\Objects\my_project_lunchbox.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -64,7 +70,6 @@ Package Vendor: WHXY
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.5.0
-Target not created.
 Build Time Elapsed:  00:00:02
 </pre>
 </body>

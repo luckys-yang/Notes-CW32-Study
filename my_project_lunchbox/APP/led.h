@@ -2,6 +2,11 @@
 #define __LED_H
 #include "main.h"
 
+// 管脚 LED1--PA7 LED2--PA8 LED--PC13
+#define Led1_Pin    GPIO_PIN_7
+#define Led2_Pin    GPIO_PIN_8
+#define Led3_Pin    GPIO_PIN_13
+
 // 定义枚举类型
 typedef enum
 {

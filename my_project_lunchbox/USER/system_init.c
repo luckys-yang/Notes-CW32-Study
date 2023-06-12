@@ -28,8 +28,11 @@ System_Init_t System_Init =
 */
 static void Hardware_Init(void)
 {
-    RCC_Config();
-    InitTick(64000000);
+    RCC_Config();   // 时钟配置
+    InitTick(64000000); // SYSTICK初始化
+    Led.Led_Init(); // LED初始化
+    Key_1.Key_1_Init(); // 按键初始化
+    Buzzer.Buzzer_Init();   // 蜂鸣器初始化
 }
 
 /*

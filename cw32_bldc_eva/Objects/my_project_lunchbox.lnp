@@ -2,6 +2,8 @@
 ".\objects\main.o"
 ".\objects\system.o"
 ".\objects\system_init.o"
+".\objects\callback.o"
+".\objects\public.o"
 ".\objects\cw32f030_adc.o"
 ".\objects\cw32f030_atim.o"
 ".\objects\cw32f030_awt.o"

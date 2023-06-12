@@ -397,6 +397,16 @@
               <FileType>1</FileType>
               <FilePath>.\USER\system_init.c</FilePath>
             </File>
+            <File>
+              <FileName>callback.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\USER\callback.c</FilePath>
+            </File>
+            <File>
+              <FileName>public.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\USER\public.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -411,6 +421,16 @@
               <FileName>led.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\APP\led.c</FilePath>
+            </File>
+            <File>
+              <FileName>buzzer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\buzzer.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\usart1.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -39,3 +39,5 @@
 .\objects\system_init.o: USER\system_init.h
 .\objects\system_init.o: USER\main.h
 .\objects\system_init.o: USER\system.h
+.\objects\system_init.o: USER\public.h
+.\objects\system_init.o: USER\callback.h

@@ -18,6 +18,7 @@ Section Cross References
     system_init.o(i.RCC_Config) refers to cw32f030_rcc.o(i.RCC_SysClk_Switch) for RCC_SysClk_Switch
     system_init.o(i.RCC_Config) refers to cw32f030_rcc.o(i.RCC_SystemCoreClockUpdate) for RCC_SystemCoreClockUpdate
     system_init.o(.data) refers to system_init.o(i.Hardware_Init) for Hardware_Init
+    public.o(.data) refers to public.o(i.Memory_Clear) for Memory_Clear
     cw32f030_adc.o(i.ADC_DisableIrq) refers to cw32f030_adc.o(i.ADC_DisableNvic) for ADC_DisableNvic
     cw32f030_adc.o(i.ADC_DisableNvic) refers to cw32f030_adc.o(i.__NVIC_ClearPendingIRQ) for __NVIC_ClearPendingIRQ
     cw32f030_adc.o(i.ADC_DisableNvic) refers to cw32f030_adc.o(i.__NVIC_SetPriority) for __NVIC_SetPriority
@@ -228,6 +229,12 @@ Removing Unused input sections from the image.
     Removing system.o(.revsh_text), (4 bytes).
     Removing system_init.o(.rev16_text), (4 bytes).
     Removing system_init.o(.revsh_text), (4 bytes).
+    Removing callback.o(.rev16_text), (4 bytes).
+    Removing callback.o(.revsh_text), (4 bytes).
+    Removing public.o(.rev16_text), (4 bytes).
+    Removing public.o(.revsh_text), (4 bytes).
+    Removing public.o(i.Memory_Clear), (22 bytes).
+    Removing public.o(.data), (4 bytes).
     Removing cw32f030_adc.o(.rev16_text), (4 bytes).
     Removing cw32f030_adc.o(.revsh_text), (4 bytes).
     Removing cw32f030_adc.o(i.ADC_AutoStop), (20 bytes).
@@ -741,7 +748,7 @@ Removing Unused input sections from the image.
     Removing cw32f030_iwdt.o(i.IWDT_ClearOVFlag), (20 bytes).
     Removing depilogue.o(i.__ARM_clz), (46 bytes).
 
-518 unused section(s) (total 20976 bytes) removed from the image.
+524 unused section(s) (total 21018 bytes) removed from the image.
 
 ==============================================================================
 
@@ -753,26 +760,26 @@ Image Symbol Table
 
     RESET                                    0x00000000   Section      192  startup_cw32f030.o(RESET)
     ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
-    ../clib/microlib/division.c              0x00000000   Number         0  ldiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry12a.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  ldiv.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry12a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry12b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry12b.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
     ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpyb.o ABSOLUTE
     ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpya.o ABSOLUTE
     ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
@@ -836,10 +843,14 @@ Image Symbol Table
     LIB\src\cw32f030_wwdt.c                  0x00000000   Number         0  cw32f030_wwdt.o ABSOLUTE
     LIB\src\system_cw32f030.c                0x00000000   Number         0  system_cw32f030.o ABSOLUTE
     OTHER\startup_cw32f030.s                 0x00000000   Number         0  startup_cw32f030.o ABSOLUTE
+    USER\\callback.c                         0x00000000   Number         0  callback.o ABSOLUTE
     USER\\main.c                             0x00000000   Number         0  main.o ABSOLUTE
+    USER\\public.c                           0x00000000   Number         0  public.o ABSOLUTE
     USER\\system.c                           0x00000000   Number         0  system.o ABSOLUTE
     USER\\system_init.c                      0x00000000   Number         0  system_init.o ABSOLUTE
+    USER\callback.c                          0x00000000   Number         0  callback.o ABSOLUTE
     USER\main.c                              0x00000000   Number         0  main.o ABSOLUTE
+    USER\public.c                            0x00000000   Number         0  public.o ABSOLUTE
     USER\system.c                            0x00000000   Number         0  system.o ABSOLUTE
     USER\system_init.c                       0x00000000   Number         0  system_init.o ABSOLUTE
     dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
@@ -1005,61 +1016,61 @@ Memory Map of the image
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00000000   0x00000000   0x000000c0   Data   RO         3350    RESET               startup_cw32f030.o
-    0x000000c0   0x000000c0   0x00000000   Code   RO         3355  * .ARM.Collect$$$$00000000  mc_p.l(entry.o)
-    0x000000c0   0x000000c0   0x00000004   Code   RO         3384    .ARM.Collect$$$$00000001  mc_p.l(entry2.o)
-    0x000000c4   0x000000c4   0x00000004   Code   RO         3387    .ARM.Collect$$$$00000004  mc_p.l(entry5.o)
-    0x000000c8   0x000000c8   0x00000000   Code   RO         3389    .ARM.Collect$$$$00000008  mc_p.l(entry7b.o)
-    0x000000c8   0x000000c8   0x00000000   Code   RO         3391    .ARM.Collect$$$$0000000A  mc_p.l(entry8b.o)
-    0x000000c8   0x000000c8   0x00000008   Code   RO         3392    .ARM.Collect$$$$0000000B  mc_p.l(entry9a.o)
-    0x000000d0   0x000000d0   0x00000004   Code   RO         3399    .ARM.Collect$$$$0000000E  mc_p.l(entry12b.o)
-    0x000000d4   0x000000d4   0x00000000   Code   RO         3394    .ARM.Collect$$$$0000000F  mc_p.l(entry10a.o)
-    0x000000d4   0x000000d4   0x00000000   Code   RO         3396    .ARM.Collect$$$$00000011  mc_p.l(entry11a.o)
-    0x000000d4   0x000000d4   0x00000004   Code   RO         3385    .ARM.Collect$$$$00002712  mc_p.l(entry2.o)
-    0x000000d8   0x000000d8   0x0000001c   Code   RO         3351    .text               startup_cw32f030.o
-    0x000000f4   0x000000f4   0x0000002c   Code   RO         3358    .text               mc_p.l(uidiv.o)
-    0x00000120   0x00000120   0x00000024   Code   RO         3362    .text               mc_p.l(memcpya.o)
-    0x00000144   0x00000144   0x00000024   Code   RO         3415    .text               mc_p.l(init.o)
-    0x00000168   0x00000168   0x00000002   Code   RO          148    i.Error_Handler     system.o
+    0x00000000   0x00000000   0x000000c0   Data   RO         3396    RESET               startup_cw32f030.o
+    0x000000c0   0x000000c0   0x00000000   Code   RO         3401  * .ARM.Collect$$$$00000000  mc_p.l(entry.o)
+    0x000000c0   0x000000c0   0x00000004   Code   RO         3430    .ARM.Collect$$$$00000001  mc_p.l(entry2.o)
+    0x000000c4   0x000000c4   0x00000004   Code   RO         3433    .ARM.Collect$$$$00000004  mc_p.l(entry5.o)
+    0x000000c8   0x000000c8   0x00000000   Code   RO         3435    .ARM.Collect$$$$00000008  mc_p.l(entry7b.o)
+    0x000000c8   0x000000c8   0x00000000   Code   RO         3437    .ARM.Collect$$$$0000000A  mc_p.l(entry8b.o)
+    0x000000c8   0x000000c8   0x00000008   Code   RO         3438    .ARM.Collect$$$$0000000B  mc_p.l(entry9a.o)
+    0x000000d0   0x000000d0   0x00000004   Code   RO         3445    .ARM.Collect$$$$0000000E  mc_p.l(entry12b.o)
+    0x000000d4   0x000000d4   0x00000000   Code   RO         3440    .ARM.Collect$$$$0000000F  mc_p.l(entry10a.o)
+    0x000000d4   0x000000d4   0x00000000   Code   RO         3442    .ARM.Collect$$$$00000011  mc_p.l(entry11a.o)
+    0x000000d4   0x000000d4   0x00000004   Code   RO         3431    .ARM.Collect$$$$00002712  mc_p.l(entry2.o)
+    0x000000d8   0x000000d8   0x0000001c   Code   RO         3397    .text               startup_cw32f030.o
+    0x000000f4   0x000000f4   0x0000002c   Code   RO         3404    .text               mc_p.l(uidiv.o)
+    0x00000120   0x00000120   0x00000024   Code   RO         3408    .text               mc_p.l(memcpya.o)
+    0x00000144   0x00000144   0x00000024   Code   RO         3461    .text               mc_p.l(init.o)
+    0x00000168   0x00000168   0x00000002   Code   RO          155    i.Error_Handler     system.o
     0x0000016a   0x0000016a   0x00000002   PAD
-    0x0000016c   0x0000016c   0x00000038   Code   RO         1247    i.FLASH_SetLatency  cw32f030_flash.o
-    0x000001a4   0x000001a4   0x00000014   Code   RO          178    i.Hardware_Init     system_init.o
-    0x000001b8   0x000001b8   0x0000006c   Code   RO         2738    i.InitTick          cw32f030_systick.o
-    0x00000224   0x00000224   0x0000004c   Code   RO          179    i.RCC_Config        system_init.o
-    0x00000270   0x00000270   0x00000020   Code   RO         2133    i.RCC_HCLKPRS_Config  cw32f030_rcc.o
-    0x00000290   0x00000290   0x00000034   Code   RO         2139    i.RCC_HSI_Enable    cw32f030_rcc.o
-    0x000002c4   0x000002c4   0x00000020   Code   RO         2151    i.RCC_PCLKPRS_Config  cw32f030_rcc.o
-    0x000002e4   0x000002e4   0x000000b4   Code   RO         2154    i.RCC_PLL_Enable    cw32f030_rcc.o
-    0x00000398   0x00000398   0x00000040   Code   RO         2158    i.RCC_SysClk_Switch  cw32f030_rcc.o
-    0x000003d8   0x000003d8   0x000000d8   Code   RO         2159    i.RCC_Sysctrl_GetHClkFreq  cw32f030_rcc.o
-    0x000004b0   0x000004b0   0x0000000c   Code   RO         2161    i.RCC_SystemCoreClockUpdate  cw32f030_rcc.o
-    0x000004bc   0x000004bc   0x00000002   Code   RO          149    i.Run               system.o
+    0x0000016c   0x0000016c   0x00000038   Code   RO         1293    i.FLASH_SetLatency  cw32f030_flash.o
+    0x000001a4   0x000001a4   0x00000014   Code   RO          185    i.Hardware_Init     system_init.o
+    0x000001b8   0x000001b8   0x0000006c   Code   RO         2784    i.InitTick          cw32f030_systick.o
+    0x00000224   0x00000224   0x0000004c   Code   RO          186    i.RCC_Config        system_init.o
+    0x00000270   0x00000270   0x00000020   Code   RO         2179    i.RCC_HCLKPRS_Config  cw32f030_rcc.o
+    0x00000290   0x00000290   0x00000034   Code   RO         2185    i.RCC_HSI_Enable    cw32f030_rcc.o
+    0x000002c4   0x000002c4   0x00000020   Code   RO         2197    i.RCC_PCLKPRS_Config  cw32f030_rcc.o
+    0x000002e4   0x000002e4   0x000000b4   Code   RO         2200    i.RCC_PLL_Enable    cw32f030_rcc.o
+    0x00000398   0x00000398   0x00000040   Code   RO         2204    i.RCC_SysClk_Switch  cw32f030_rcc.o
+    0x000003d8   0x000003d8   0x000000d8   Code   RO         2205    i.RCC_Sysctrl_GetHClkFreq  cw32f030_rcc.o
+    0x000004b0   0x000004b0   0x0000000c   Code   RO         2207    i.RCC_SystemCoreClockUpdate  cw32f030_rcc.o
+    0x000004bc   0x000004bc   0x00000002   Code   RO          156    i.Run               system.o
     0x000004be   0x000004be   0x00000002   PAD
-    0x000004c0   0x000004c0   0x00000018   Code   RO         2742    i.SysTick_Handler   cw32f030_systick.o
-    0x000004d8   0x000004d8   0x00000010   Code   RO         3290    i.SystemCoreClockUpdate  system_cw32f030.o
-    0x000004e8   0x000004e8   0x0000003c   Code   RO         3291    i.SystemInit        system_cw32f030.o
-    0x00000524   0x00000524   0x0000001c   Code   RO         1836    i.__ARM_common_switch8  cw32f030_i2c.o
-    0x00000540   0x00000540   0x00000078   Code   RO         2743    i.__NVIC_SetPriority  cw32f030_systick.o
-    0x000005b8   0x000005b8   0x0000000e   Code   RO         3419    i.__scatterload_copy  mc_p.l(handlers.o)
-    0x000005c6   0x000005c6   0x00000002   Code   RO         3420    i.__scatterload_null  mc_p.l(handlers.o)
-    0x000005c8   0x000005c8   0x0000000e   Code   RO         3421    i.__scatterload_zeroinit  mc_p.l(handlers.o)
+    0x000004c0   0x000004c0   0x00000018   Code   RO         2788    i.SysTick_Handler   cw32f030_systick.o
+    0x000004d8   0x000004d8   0x00000010   Code   RO         3336    i.SystemCoreClockUpdate  system_cw32f030.o
+    0x000004e8   0x000004e8   0x0000003c   Code   RO         3337    i.SystemInit        system_cw32f030.o
+    0x00000524   0x00000524   0x0000001c   Code   RO         1882    i.__ARM_common_switch8  cw32f030_i2c.o
+    0x00000540   0x00000540   0x00000078   Code   RO         2789    i.__NVIC_SetPriority  cw32f030_systick.o
+    0x000005b8   0x000005b8   0x0000000e   Code   RO         3465    i.__scatterload_copy  mc_p.l(handlers.o)
+    0x000005c6   0x000005c6   0x00000002   Code   RO         3466    i.__scatterload_null  mc_p.l(handlers.o)
+    0x000005c8   0x000005c8   0x0000000e   Code   RO         3467    i.__scatterload_zeroinit  mc_p.l(handlers.o)
     0x000005d6   0x000005d6   0x00000002   PAD
     0x000005d8   0x000005d8   0x00000018   Code   RO            3    i.main              main.o
-    0x000005f0   0x000005f0   0x00000064   Data   RO         2163    .constdata          cw32f030_rcc.o
-    0x00000654   0x00000654   0x00000020   Data   RO         3417    Region$$Table       anon$$obj.o
+    0x000005f0   0x000005f0   0x00000064   Data   RO         2209    .constdata          cw32f030_rcc.o
+    0x00000654   0x00000654   0x00000020   Data   RO         3463    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x00000674, Size: 0x00000220, Max: 0x00002000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x00000674   0x00000008   Data   RW          150    .data               system.o
-    0x20000008   0x0000067c   0x00000004   Data   RW          180    .data               system_init.o
-    0x2000000c   0x00000680   0x00000009   Data   RW         2744    .data               cw32f030_systick.o
+    0x20000000   0x00000674   0x00000008   Data   RW          157    .data               system.o
+    0x20000008   0x0000067c   0x00000004   Data   RW          187    .data               system_init.o
+    0x2000000c   0x00000680   0x00000009   Data   RW         2790    .data               cw32f030_systick.o
     0x20000015   0x00000689   0x00000003   PAD
-    0x20000018   0x0000068c   0x00000004   Data   RW         3295    .data               system_cw32f030.o
+    0x20000018   0x0000068c   0x00000004   Data   RW         3341    .data               system_cw32f030.o
     0x2000001c   0x00000690   0x00000004   PAD
-    0x20000020        -       0x00000200   Zero   RW         3348    STACK               startup_cw32f030.o
+    0x20000020        -       0x00000200   Zero   RW         3394    STACK               startup_cw32f030.o
 
 
 ==============================================================================
