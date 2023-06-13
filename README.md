@@ -1,6 +1,6 @@
 # cw32_Project
 
-                                                                 存放我的cw32项目
+存放我的cw32项目
 
 `cw32030c8t6_template` ---- cw32030c8t6模板工程
 
