@@ -1,6 +1,14 @@
 {
     "files.associations": {
-        "main.h": "c"
+        "main.h": "c",
+        "cw32f030_uart.h": "c",
+        "crc_16.h": "c",
+        "modbus.h": "c",
+        "buzzer.h": "c",
+        "tft_st7735.h": "c",
+        "limits": "cpp",
+        "memory": "cpp",
+        "rtc.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

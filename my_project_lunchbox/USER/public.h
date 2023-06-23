@@ -4,7 +4,35 @@
 
 // Debug Port(Default serial port 1)
 #define UART_DEBUG  CW_UART1
-// ȡ�� FALSE �� TRUE �궨��(��������ö�ٱ�����)
+
+/***********************全局宏预编译 BEGIN***********************/
+
+// 选择屏幕(只能3选1)
+// #define USE_TFT 
+#define USE_096_OLED
+// #define USE_091_OLED
+
+// ADC选择模式(单通道单次/序列扫描)
+// #define USE_ADC_Single_One
+#define USE_ADC_Serial_Scan
+
+// RTC中断选择打开
+// #define USE_RTC_Interrupt
+
+// 输入捕获有问题，暂时屏蔽
+// #define USE_PWM_IC
+// #define USE_PWM_IC_ATIM
+
+// GTIM3互补输出
+// #define USE_GTIM3_TOGG
+
+// ATIM输出比较
+// #define USE_ATIM_PWM
+
+/***********************全局宏预编译   END***********************/
+
+
+// 取消 FALSE 和 TRUE 宏定义(否则下面枚举报错！)
 #undef FALSE
 #undef TRUE
 
@@ -28,9 +56,17 @@ typedef enum
     TRUE = !FALSE 
 }FLagStatus_t;
 
+// 超时时间
+typedef enum
+{
+    UART_TX_TimerOut = (uint8_t)100,    // 串口发送单字节等待最大时间(ms)
+}TIMER_OUT_t;
+
 typedef struct
 {
-    void (*Memory_Clear)(uint8_t*, uint16_t);   // �ڴ����
+    void (*System_10US_Delay)(uint32_t);    // 系统延时10*xus
+    void (*System_MS_Delay)(uint32_t);  // 系统ms延时
+    void (*Memory_Clear)(uint8_t*, uint16_t);   // 内存清除
 }Public_t;
 
 extern Public_t Public;

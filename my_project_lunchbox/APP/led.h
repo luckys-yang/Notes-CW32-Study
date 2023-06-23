@@ -2,12 +2,12 @@
 #define __LED_H
 #include "main.h"
 
-// ¹Ü½Å LED1--PA7 LED2--PA8 LED--PC13
+// ç®¡è„š LED1--PA7 LED2--PA8 LED--PC13
 #define Led1_Pin    GPIO_PIN_7
 #define Led2_Pin    GPIO_PIN_8
 #define Led3_Pin    GPIO_PIN_13
 
-// ¶¨ÒåÃ¶¾ÙÀàĞÍ
+// å®šä¹‰æšä¸¾ç±»å‹
 typedef enum
 {
     LED1 = (uint8_t)0x01,
@@ -17,10 +17,10 @@ typedef enum
 
 typedef struct
 {
-    void (*Led_Init)(void); // LED³õÊ¼»¯
-    void (*Led_ON)(Led_Num_t);   // ´ò¿ª
-    void (*Led_OFF)(Led_Num_t);  // ¹Ø±Õ
-    void (*Led_Flip)(Led_Num_t); // ·­×ª
+    void (*Led_Init)(void); // LEDåˆå§‹åŒ–
+    void (*Led_ON)(Led_Num_t);   // æ‰“å¼€
+    void (*Led_OFF)(Led_Num_t);  // å…³é—­
+    void (*Led_Flip)(Led_Num_t); // ç¿»è½¬
 } Led_t;
 
 extern Led_t Led;

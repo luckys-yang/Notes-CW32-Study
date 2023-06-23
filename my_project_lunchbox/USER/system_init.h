@@ -4,7 +4,7 @@
 
 typedef struct
 {
-    void (*Hardware_Init)(void);    // Ó²¼ş³õÊ¼»¯
+    void (*Hardware_Init)(void);    // ç¡¬ä»¶åˆå§‹åŒ–
 }System_Init_t;
 
 

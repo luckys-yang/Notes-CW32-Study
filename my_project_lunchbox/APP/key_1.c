@@ -2,7 +2,7 @@
  * File: key_1.c
  * Author: Luckys.
  * Date: 2023/06/11
- * description: 独立按键
+ * description: 底板独立按键(低电平有效)
 ****************************************************************************/
 
 #include "main.h"
@@ -18,6 +18,7 @@ static uint8_t ucKey_1_Value,ucKey_1_Up,ucKey_1_Down;
 static void Key_1_Init(void);    // 按键初始化
 static uint8_t Key_1_Return_Value(void); // 返回键值
 static void Key_1_Scan(void);   // 按键三行消抖---按键扫描
+static void Key_1_Handler(void);    // 按键处理
 /*====================================static function declaration area   END====================================*/
 
 Key_1_t Key_1 = 
@@ -26,6 +27,7 @@ Key_1_t Key_1 =
     {FALSE},
     Key_1_Init,
     Key_1_Scan,
+    Key_1_Handler,
 };
 
 /*
@@ -116,3 +118,57 @@ static void Key_1_Scan(void)
     }
 }
 
+/*
+* @function: Key_1_Handler
+* @param: None
+* @retval: None
+* @brief: 按键处理
+*/
+static void Key_1_Handler(void)
+{
+    if (Key_1.vucKey_1_Flag_Arr[0]) // K1短按
+    {
+        if (Buzzer.Buzzer_Status == Buzzer_Status_OFF)
+        {
+            Buzzer.Buzzer_ON();
+        }
+        else
+        {
+            Buzzer.Buzzer_OFF();
+        }
+        Key_1.vucKey_1_Flag_Arr[0] = FALSE;
+    }
+    else if (Key_1.vucKey_1_Flag_Arr[1])    // K2短按
+    {
+        // 切换页面
+        Menu.Now_Page_Status = (Menu.Now_Page_Status % PAGE_MAX) + 1;
+        OLED096.OLED096_Clear();
+        Key_1.vucKey_1_Flag_Arr[1] = FALSE;
+    }
+    else if (Key_1.vucKey_1_Flag_Arr[2])    //K3短按
+    {
+        Key_1.vucKey_1_Flag_Arr[2] = FALSE;
+    }
+    else if (Key_1.vucKey_1_Flag_Arr[3])    // K1长按
+    {
+        Gtim.Gtim1_CH_Set_Pulse[0] += 20;   // 占空比加5%
+        Gtim.Gtim1_CH_Set_Pulse[1] += 20;   // 占空比加5%
+
+        if (Gtim.Gtim1_CH_Set_Pulse[0] > 380)
+        {
+            Gtim.Gtim1_CH_Set_Pulse[0] = 20;    // 占空比恢复到5%
+        }
+        if (Gtim.Gtim1_CH_Set_Pulse[1] > 380)
+        {
+            Gtim.Gtim1_CH_Set_Pulse[1] = 40;    // 占空比恢复到10%
+        }
+        // 更新占空比
+        CW_GTIM1->CCR1 = Gtim.Gtim1_CH_Set_Pulse[0];
+        CW_GTIM1->CCR2 = Gtim.Gtim1_CH_Set_Pulse[1];
+        Key_1.vucKey_1_Flag_Arr[3] = FALSE;
+    }
+    else if (Key_1.vucKey_1_Flag_Arr[4])    // K2长按
+    {
+        Key_1.vucKey_1_Flag_Arr[4] = FALSE;
+    }    
+}

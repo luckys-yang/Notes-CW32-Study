@@ -4,8 +4,9 @@
 
 typedef struct
 {
-    void (*Run)(void);  // 系统运行
+    void (*System_Run)(void);  // 系统运行
     void (*Error_Handler)(void);    // 系统错误处理
+    void (*Task_Marks_Handler)(void);   // 任务标记
 }System_t;
 
 

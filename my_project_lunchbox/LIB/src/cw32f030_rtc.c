@@ -232,7 +232,7 @@ void RTC_SetDate(RTC_DateTypeDef *RTC_DateStruct)
     assert_param(IS_RTC_MONTH(RTC_BCDToBin(RTC_DateStruct->Month)));
     assert_param(IS_RTC_DAY(RTC_BCDToBin(RTC_DateStruct->Day)));
     assert_param(IS_RTC_WEEKDAY(RTC_DateStruct->Week));
-
+  
     RTC_UNLOCK();
 
     CW_RTC->DATE = ((uint32_t)(RTC_DateStruct->Week) << 24) |
@@ -304,7 +304,7 @@ void RTC_SetAlarm(uint32_t RTC_Alarm, RTC_AlarmTypeDef* RTC_AlarmStruct)
 {
     uint32_t RegTmp = 0;
 
-    assert_param(IS_RTC_ALARM(RTC_Alarm));
+    assert_param(IS_RTC_ALARM(RTC_Alarm)); 
     assert_param(IS_ALARM_MASK(RTC_AlarmStruct->RTC_AlarmMask));
     assert_param(IS_RTC_SECONDS(RTC_BCDToBin(RTC_AlarmStruct->RTC_AlarmTime.Second)));
     assert_param(IS_RTC_MINUTES(RTC_BCDToBin(RTC_AlarmStruct->RTC_AlarmTime.Minute)));

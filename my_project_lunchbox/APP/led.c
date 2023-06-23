@@ -120,7 +120,7 @@ static void Led_OFF(Led_Num_t LEDx)
 * @function: Led_Flip
 * @param: LEDx -> 1,2,3
 * @retval: None
-* @brief: LED³õÊ¼»¯
+* @brief: LED·­×ª
 */
 static void Led_Flip(Led_Num_t LEDx)
 {

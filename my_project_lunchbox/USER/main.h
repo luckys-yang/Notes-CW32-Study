@@ -32,13 +32,27 @@
 #include <stdbool.h>
 #include <string.h>
 
+#include "task.h"
 #include "system_init.h"
 #include "system.h"
 #include "callback.h"
 #include "public.h"
 #include "led.h"
 #include "key_1.h"
+#include "key_2.h"
 #include "buzzer.h"
-#include "callback.h"
 #include "usart1.h"
+#include "crc_16.h"
+#include "modbus.h"
+#include "btim.h"
+#include "gtim.h"
+#include "atim.h"
+#include "tft_st7735.h"
+#include "i2c.h"
+#include "oled_096.h"
+#include "adc1.h"
+#include "rtc.h"
+#include "menu.h"
+#include "dht11.h"
+
 #endif

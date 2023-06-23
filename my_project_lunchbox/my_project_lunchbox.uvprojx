@@ -407,6 +407,11 @@
               <FileType>1</FileType>
               <FilePath>.\USER\public.c</FilePath>
             </File>
+            <File>
+              <FileName>task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\USER\task.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -416,6 +421,11 @@
               <FileName>key_1.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\APP\key_1.c</FilePath>
+            </File>
+            <File>
+              <FileName>key_2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\key_2.c</FilePath>
             </File>
             <File>
               <FileName>led.c</FileName>
@@ -431,6 +441,66 @@
               <FileName>usart1.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\APP\usart1.c</FilePath>
+            </File>
+            <File>
+              <FileName>CRC_16.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\CRC_16.c</FilePath>
+            </File>
+            <File>
+              <FileName>modbus.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\modbus.c</FilePath>
+            </File>
+            <File>
+              <FileName>atim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\atim.c</FilePath>
+            </File>
+            <File>
+              <FileName>btim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\btim.c</FilePath>
+            </File>
+            <File>
+              <FileName>gtim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\gtim.c</FilePath>
+            </File>
+            <File>
+              <FileName>tft_st7735.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\tft_st7735.c</FilePath>
+            </File>
+            <File>
+              <FileName>i2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\i2c.c</FilePath>
+            </File>
+            <File>
+              <FileName>oled_096.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\oled_096.c</FilePath>
+            </File>
+            <File>
+              <FileName>adc1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\adc1.c</FilePath>
+            </File>
+            <File>
+              <FileName>rtc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\rtc.c</FilePath>
+            </File>
+            <File>
+              <FileName>menu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\menu.c</FilePath>
+            </File>
+            <File>
+              <FileName>dht11.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\dht11.c</FilePath>
             </File>
           </Files>
         </Group>

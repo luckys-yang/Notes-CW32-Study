@@ -2,30 +2,31 @@
 #define __KEY_1_H
 #include "main.h"
 
-// ¹Ü½Å K1--PB13 K2--PB14 K3--PB15
+// ç®¡è„š K1--PB13 K2--PB14 K3--PB15
 #define Key1_Pin    GPIO_PIN_13
 #define Key2_Pin    GPIO_PIN_14
 #define Key3_Pin    GPIO_PIN_15
 
-// ¶ÁÈ¡°´¼üµçÆ½
+// è¯»å–æŒ‰é”®ç”µå¹³
 #define READ_KEY1    GPIO_ReadPin(CW_GPIOB,GPIO_PIN_13)
 #define READ_KEY2    GPIO_ReadPin(CW_GPIOB,GPIO_PIN_14)
 #define READ_KEY3    GPIO_ReadPin(CW_GPIOB,GPIO_PIN_15)
 
 typedef enum
 {
-    KEY_NULL  = (uint8_t)0x00,  // ÎŞ°´¼ü°´ÏÂ¼üÖµ
-    KEY1_DOWN = (uint8_t)0x01,  // °´¼ü1°´ÏÂ¼üÖµ  
-    KEY2_DOWN = (uint8_t)0x02,  // °´¼ü2°´ÏÂ¼üÖµ
-    KEY3_DOWN = (uint8_t)0x03,  // °´¼ü3°´ÏÂ¼üÖµ
+    KEY_NULL  = (uint8_t)0x00,  // æ— æŒ‰é”®æŒ‰ä¸‹é”®å€¼
+    KEY1_DOWN = (uint8_t)0x01,  // æŒ‰é”®1æŒ‰ä¸‹é”®å€¼  
+    KEY2_DOWN = (uint8_t)0x02,  // æŒ‰é”®2æŒ‰ä¸‹é”®å€¼
+    KEY3_DOWN = (uint8_t)0x03,  // æŒ‰é”®3æŒ‰ä¸‹é”®å€¼
 }Key_1_Status_t;
 
 typedef struct
 {
-    uint16_t volatile vusKey_1_Timer_Count; // ³¤°´¼ÆÊı
-    uint8_t volatile vucKey_1_Flag_Arr[6];  // °´¼ü±êÖ¾Î»(¶Ì³¤°´)
-    void (*Key_1_Init)(void);   // °´¼ü³õÊ¼»¯
-    void (*Key_1_Scan)(void);   // °´¼üÈıĞĞÏû¶¶---°´¼üÉ¨Ãè
+    uint16_t volatile vusKey_1_Timer_Count; // é•¿æŒ‰è®¡æ•°
+    uint8_t volatile vucKey_1_Flag_Arr[6];  // æŒ‰é”®æ ‡å¿—ä½(çŸ­é•¿æŒ‰)
+    void (*Key_1_Init)(void);   // æŒ‰é”®åˆå§‹åŒ–
+    void (*Key_1_Scan)(void);   // æŒ‰é”®ä¸‰è¡Œæ¶ˆæŠ–---æŒ‰é”®æ‰«æ
+    void (*Key_1_Handler)(void);    // æŒ‰é”®å¤„ç†
 }Key_1_t;
 
 extern Key_1_t Key_1;

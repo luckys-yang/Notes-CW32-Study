@@ -3,13 +3,13 @@
         {
             "name": "Target 1",
             "includePath": [
-                "g:\\cw32\\my_project_lunchbox\\LIB\\inc",
-                "g:\\cw32\\my_project_lunchbox\\USER",
-                "g:\\cw32\\my_project_lunchbox\\APP",
-                "g:\\cw32\\my_project_lunchbox\\OTHER",
+                "g:\\my_code\\cw32\\my_project_lunchbox\\LIB\\inc",
+                "g:\\my_code\\cw32\\my_project_lunchbox\\USER",
+                "g:\\my_code\\cw32\\my_project_lunchbox\\APP",
+                "g:\\my_code\\cw32\\my_project_lunchbox\\OTHER",
                 "C:\\Keil_v5\\ARM\\ARMCC\\include",
                 "C:\\Keil_v5\\ARM\\ARMCC\\include\\rw",
-                "g:\\cw32\\my_project_lunchbox\\LIB\\src"
+                "g:\\my_code\\cw32\\my_project_lunchbox\\LIB\\src"
             ],
             "defines": [
                 "__CC_ARM",
